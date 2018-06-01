@@ -1,4 +1,4 @@
-package com.isthmusit.isthgreenapp.isthgreenapp;
+package com.isthmusit.isthgreen.isthgreenapp;
 
 import org.junit.Test;
 

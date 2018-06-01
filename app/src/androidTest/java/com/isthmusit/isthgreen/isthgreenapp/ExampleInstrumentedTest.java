@@ -1,4 +1,4 @@
-package com.isthmusit.isthgreenapp.isthgreenapp;
+package com.isthmusit.isthgreen.isthgreenapp;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.isthmusit.isthgreenapp.isthgreenapp", appContext.getPackageName());
+        assertEquals("com.isthmusit.isthgreen.isthgreenapp", appContext.getPackageName());
     }
 }
