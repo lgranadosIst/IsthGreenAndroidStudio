@@ -20,5 +20,4 @@
         android:layout_height="wrap_content"
         android:text="Click me"/>
 
-
 </android.support.constraint.ConstraintLayout>
