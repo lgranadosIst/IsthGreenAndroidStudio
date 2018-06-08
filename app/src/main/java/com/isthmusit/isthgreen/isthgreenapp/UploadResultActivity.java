@@ -17,7 +17,7 @@ public class UploadResultActivity extends AppCompatActivity {
 
         this.setTitle("Result");
 
-        btnNext = (Button)findViewById(R.id.btnGoToDashboard);
+        btnNext = findViewById(R.id.btnGoToDashboard);
         btnNext.setOnClickListener(new android.view.View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -26,13 +26,13 @@ public class UploadResultActivity extends AppCompatActivity {
             }
         });
 
-        btnBack = (Button)findViewById(R.id.btnBackToGetImage);
+        /*btnBack = (Button)findViewById(R.id.btnBackToGetImage);
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onBackPressed();
             }
-        });
+        });*/
     }
 
 }

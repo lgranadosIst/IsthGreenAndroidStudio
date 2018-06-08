@@ -29,6 +29,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.isthmusit.isthgreen.isthgreenapp.entity.User;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -201,6 +203,14 @@ public class LoginActivity extends AppCompatActivity {//implements LoaderCallbac
             //showProgress(true);
             if(isUsernameValid && isPasswordValid){
                 android.content.Intent intent = new android.content.Intent(LoginActivity.this, QRCodeActivity.class);
+
+                User user = new User();
+                user.Username = username;
+                user.Password = password;
+                Bundle bundle = new Bundle();
+                bundle.putParcelable("User", user);
+                intent.putExtras(bundle);
+
                 startActivity(intent);
             }
             //mAuthTask = new UserLoginTask(username, password);

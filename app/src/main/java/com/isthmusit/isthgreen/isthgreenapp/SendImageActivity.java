@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.content.Intent;
 import android.widget.Button;
+import android.widget.TextView;
+
+import com.isthmusit.isthgreen.isthgreenapp.entity.User;
 
 public class SendImageActivity extends AppCompatActivity {
     private Button btnNext;
@@ -17,7 +20,7 @@ public class SendImageActivity extends AppCompatActivity {
 
         this.setTitle("Get Image");
 
-        btnNext = (Button)findViewById(R.id.btnGoToResult);
+        btnNext = findViewById(R.id.btnGoToResult);
         btnNext.setOnClickListener(new android.view.View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -26,12 +29,12 @@ public class SendImageActivity extends AppCompatActivity {
             }
         });
 
-        btnBack = (Button)findViewById(R.id.btnBackToQRCode);
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onBackPressed();
-            }
-        });
+//        btnBack = (Button)findViewById(R.id.btnBackToQRCode);
+//        btnBack.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                onBackPressed();
+//            }
+//        });
     }
 }

@@ -16,11 +16,12 @@ public class DashboardActivity extends AppCompatActivity {
 
         this.setTitle("Dashboard");
 
-        btnBack = (Button)findViewById(R.id.btnBackToResult);
+        btnBack = findViewById(R.id.btnBackToQRCode);
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onBackPressed();
+                Intent intent = new Intent(DashboardActivity.this, QRCodeActivity.class);
+                startActivity(intent);
             }
         });
     }

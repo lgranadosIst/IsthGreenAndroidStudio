@@ -7,11 +7,11 @@
     tools:context=".DashboardActivity">
 
     <Button
-        android:id="@+id/btnBackToResult"
+        android:id="@+id/btnBackToQRCode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
-        android:text="Back"
+        android:text="Submit More..."
         android:textColor="#000"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
