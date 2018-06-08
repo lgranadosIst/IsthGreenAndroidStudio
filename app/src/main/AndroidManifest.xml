@@ -25,7 +25,7 @@
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login" />
-        <activity android:name=".QRCCodeActivity" />
+        <activity android:name=".QRCodeActivity" />
         <activity android:name=".SendImageActivity" />
         <activity android:name=".UploadResultActivity" />
         <activity android:name=".DashboardActivity"></activity>

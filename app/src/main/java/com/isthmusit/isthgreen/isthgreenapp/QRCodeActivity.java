@@ -6,32 +6,35 @@ import android.view.View;
 import android.content.Intent;
 import android.widget.Button;
 
-public class SendImageActivity extends AppCompatActivity {
-    private Button btnNext;
-    private Button btnBack;
+public class QRCodeActivity extends AppCompatActivity {
+     private Button btnNext;
+     private Button btnBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_send_image);
+        setContentView(R.layout.activity_qrcode);
 
-        this.setTitle("Get Image");
+        this.setTitle("QR Code");
 
-        btnNext = (Button)findViewById(R.id.btnGoToResult);
+        btnNext = (Button)findViewById(R.id.btnGoToSendImage);
         btnNext.setOnClickListener(new android.view.View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            Intent intent = new Intent(SendImageActivity.this, UploadResultActivity.class);
+            Intent intent = new Intent(QRCodeActivity.this, SendImageActivity.class);
             startActivity(intent);
             }
         });
 
-        btnBack = (Button)findViewById(R.id.btnBackToQRCode);
+        btnBack = (Button)findViewById(R.id.btnBackToLogin);
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onBackPressed();
             }
         });
+
     }
+
 }
+
