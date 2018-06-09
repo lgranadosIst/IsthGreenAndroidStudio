@@ -8,22 +8,31 @@ import android.widget.Button;
 
 public class SplashActivity extends AppCompatActivity {
 
-    private Button btnNext;
+    //private Button btnNext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash);
 
-        this.setTitle("Splash");
+        startActivity(new Intent(SplashActivity.this, LoginActivity.class));
 
-        btnNext = findViewById(R.id.btnGoToLogin);
-        btnNext.setOnClickListener(new android.view.View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
-                startActivity(intent);
-            }
-        });
+        finish();
     }
+
+//    @Override
+//    protected void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.activity_splash);
+//
+//        this.setTitle("Splash");
+//
+//        btnNext = findViewById(R.id.btnGoToLogin);
+//        btnNext.setOnClickListener(new android.view.View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
+//                startActivity(intent);
+//            }
+//        });
+//    }
 }
