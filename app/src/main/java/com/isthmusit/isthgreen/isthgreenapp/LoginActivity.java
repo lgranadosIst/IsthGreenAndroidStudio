@@ -1,13 +1,15 @@
 package com.isthmusit.isthgreen.isthgreenapp;
 
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+
 import com.isthmusit.isthgreen.isthgreenapp.entity.User;
 
 public class LoginActivity extends AppCompatActivity {
@@ -79,7 +81,7 @@ public class LoginActivity extends AppCompatActivity {
             focusView.requestFocus();
         } else {
             if(isUsernameValid && isPasswordValid){
-                android.content.Intent intent = new android.content.Intent(LoginActivity.this, QRCodeActivity.class);
+                Intent intent = new Intent(LoginActivity.this, QRCodeActivity.class);
 
                 User user = new User();
                 user.Username = username;
