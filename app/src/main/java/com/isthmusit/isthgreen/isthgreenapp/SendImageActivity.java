@@ -1,13 +1,10 @@
 package com.isthmusit.isthgreen.isthgreenapp;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.View;
 import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
-
-import com.isthmusit.isthgreen.isthgreenapp.entity.User;
 
 public class SendImageActivity extends AppCompatActivity {
     private Button btnNext;
@@ -29,12 +26,5 @@ public class SendImageActivity extends AppCompatActivity {
             }
         });
 
-//        btnBack = (Button)findViewById(R.id.btnBackToQRCode);
-//        btnBack.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                onBackPressed();
-//            }
-//        });
     }
 }
