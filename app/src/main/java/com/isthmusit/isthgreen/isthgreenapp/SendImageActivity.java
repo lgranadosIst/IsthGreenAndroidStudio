@@ -16,7 +16,7 @@ import com.isthmusit.isthgreen.isthgreenapp.entity.User;
 
 public class SendImageActivity extends AppCompatActivity {
     private Button btnNext;
-    //private Button btnBack;
+    private Button btnBack;
     private Button btnOpenCamera;
     private Button btnSelectPhoto;
     private ImageView imageViewSelectedImage;
