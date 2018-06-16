@@ -53,13 +53,18 @@
             android:textSize="20dp"
             android:layout_marginTop="20dp"/>
 
-        <EditText
-            android:id="@+id/editSelectImage"
+        <!--<EditText-->
+            <!--android:id="@+id/editSelectImage"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:ems="10"-->
+            <!--android:inputType="none"-->
+            <!--android:focusable="false"/>-->
+
+        <ImageView
+            android:id="@+id/imageViewSelectedImage"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="none"
-            android:focusable="false"/>
+            android:layout_height="150dp" />
 
         <LinearLayout
             android:layout_width="match_parent"

@@ -6,7 +6,7 @@
     <item>
     <bitmap
         android:gravity="center"
-        android:src="@drawable/green" />
+        android:src="@drawable/isthgreen" />
     </item>
 
 </layer-list>
