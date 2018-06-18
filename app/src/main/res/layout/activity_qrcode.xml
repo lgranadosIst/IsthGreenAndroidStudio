@@ -2,38 +2,30 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".QRCodeActivity">
 
     <Button
         android:id="@+id/btnOpenQRCode"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Read QR Code"
-        android:textSize="20dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="10dp"
-        app:layout_constraintHorizontal_bias="0.588"
+        android:layout_width="192dp"
+        android:layout_height="165dp"
+        android:background="@mipmap/ic_recycle_qr_code_foreground"
+        android:gravity="center_horizontal"
+        android:visibility="visible"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintVertical_bias="0.129"
-        />
+        app:layout_constraintRight_toRightOf="parent" />
 
     <Button
         android:id="@+id/btnGoToSendImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Go To Get Image"
-        android:textColor="#000"
-        android:textSize="20dp"
+        android:layout_width="110dp"
+        android:layout_height="91dp"
+        android:background="@drawable/ic_action_get_image"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.588"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.129" />
+        app:layout_constraintVertical_bias="0.392" />
 
     <TextView
         android:id="@+id/TextUsername"
@@ -41,20 +33,22 @@
         android:layout_height="wrap_content"
         android:text="Username"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintHorizontal_bias="0.95"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.441" />
+        app:layout_constraintVertical_bias="0.006" />
 
     <TextView
         android:id="@+id/TextPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Password"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.95"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:text="Password"/>
+        app:layout_constraintVertical_bias="0.044" />
 
 </android.support.constraint.ConstraintLayout>

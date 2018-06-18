@@ -3,4 +3,9 @@
     <color name="colorPrimary">#669900</color>
     <color name="colorPrimaryDark">#5A8700</color>
     <color name="colorAccent">#669900</color>
+    <color name="border_green">#5a8c27</color>
+    <color name="border_green_sheet">#409F73</color>
+    <color name="border_green_light">#7db620</color>
+    <color name="light_green">#f3f7f2</color>
+    <color name="light_grey">#9eb6a6</color>
 </resources>

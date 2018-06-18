@@ -9,18 +9,17 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
-
+import android.widget.TextView;
 import com.isthmusit.isthgreen.isthgreenapp.entity.User;
+import java.util.Calendar;
 
 public class LoginActivity extends AppCompatActivity {
 
-
+    private TextView txtCopyright;
     private Boolean isUsernameValid = false;
     private Boolean isPasswordValid = false;
     private EditText mPasswordView;
     private EditText mUsernameView;
-    private View mProgressView;
-    private View mLoginFormView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +27,11 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         this.setTitle("Login");
+        Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        txtCopyright = findViewById(R.id.txtCopyright);
+        txtCopyright.setText("© "+ Integer.toString(year)+" Copyright Isthmus Software");
+
         mUsernameView = (EditText) findViewById(R.id.username);
         mPasswordView = (EditText) findViewById(R.id.password);
 
@@ -38,9 +42,6 @@ public class LoginActivity extends AppCompatActivity {
                 attemptLogin();
             }
         });
-
-        mLoginFormView = findViewById(R.id.login_form);
-        mProgressView = findViewById(R.id.login_progress);
     }
 
     private void attemptLogin() {
