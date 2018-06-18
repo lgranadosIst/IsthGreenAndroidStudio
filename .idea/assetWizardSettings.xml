@@ -51,7 +51,7 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="scalingPercent" value="5" />
+                                                <entry key="scalingPercent" value="1" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -62,7 +62,7 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="scalingPercent" value="104" />
+                                                <entry key="scalingPercent" value="115" />
                                                 <entry key="trimmed" value="true" />
                                               </map>
                                             </option>
@@ -74,10 +74,7 @@
                                   <option name="values">
                                     <map>
                                       <entry key="backgroundColor" value="ffffff" />
-                                      <entry key="backgroundLayerName" value="ic_co_symbol_background" />
-                                      <entry key="foregroundImage" value="C:\Cursos\curso-android\iconos\images\eco_symbol.jpg" />
-                                      <entry key="foregroundLayerName" value="ic_co_symbol_foreground" />
-                                      <entry key="outputName" value="ic_eco_symbol" />
+                                      <entry key="foregroundImage" value="C:\Users\Luis Granados\Desktop\Imagenes IsthGreen\isthgreen_dark.png" />
                                       <entry key="previewDensity" value="HIGH" />
                                     </map>
                                   </option>

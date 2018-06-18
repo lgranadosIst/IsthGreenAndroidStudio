@@ -33,10 +33,10 @@
 
             <ImageView
                 android:id="@+id/logo"
-                android:layout_width="166dp"
+                android:layout_width="170dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:background="@mipmap/ic_launcher_foreground" />
+                android:background="@mipmap/ic_isthgreen_foreground" />
         </LinearLayout>
 
         <android.support.design.widget.TextInputLayout
