@@ -5,10 +5,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.content.Intent;
 import android.widget.Button;
+import android.support.v7.widget.Toolbar;
 
 public class UploadResultActivity extends AppCompatActivity {
     private Button btnNext;
     private Button btnBack;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,13 +28,14 @@ public class UploadResultActivity extends AppCompatActivity {
             }
         });
 
-        /*btnBack = (Button)findViewById(R.id.btnBackToGetImage);
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onBackPressed();
-            }
-        });*/
+        setToolbar();
+    }
+
+    private void setToolbar(){
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Result");
     }
 
 }

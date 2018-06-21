@@ -8,6 +8,11 @@
     android:background="@drawable/recycled_seals_foreground"
     tools:context=".DashboardActivity">
 
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"
+        />
+
     <Button
         android:id="@+id/btnBackToQRCode"
         android:layout_width="wrap_content"

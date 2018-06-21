@@ -7,6 +7,11 @@
     android:layout_height="match_parent"
     tools:context=".UploadResultActivity">
 
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"
+        />
+
     <Button
         android:id="@+id/btnGoToDashboard"
         android:layout_width="wrap_content"

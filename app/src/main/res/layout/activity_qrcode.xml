@@ -6,6 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".QRCodeActivity">
 
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"
+        />
+
     <Button
         android:id="@+id/btnOpenQRCode"
         android:layout_width="192dp"

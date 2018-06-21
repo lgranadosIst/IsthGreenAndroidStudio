@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.net.Uri;
@@ -20,6 +21,7 @@ public class SendImageActivity extends AppCompatActivity {
     private Button btnSelectPhoto;
     private ImageView imageViewSelectedImage;
     private TextView textQRCode;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,13 +87,14 @@ public class SendImageActivity extends AppCompatActivity {
 
         imageViewSelectedImage = findViewById(R.id.imageViewSelectedImage);
 
-//        btnBack = (Button)findViewById(R.id.btnBackToQRCode);
-//        btnBack.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                onBackPressed();
-//            }
-//        });
+        setToolbar();
+    }
+
+    private void setToolbar(){
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Get Image");
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent imageReturnedIntent) {

@@ -3,6 +3,7 @@ package com.isthmusit.isthgreen.isthgreenapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -21,7 +22,7 @@ public class QRCodeActivity extends AppCompatActivity {
     private Button btnOpenQrCode;
     private TextView textUsername;
     private TextView textPassword;
-
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +57,15 @@ public class QRCodeActivity extends AppCompatActivity {
             }
         });
 
+        setToolbar();
+
+    }
+
+    private void setToolbar(){
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("QR Code");
     }
 
     private void openQRCode(){
