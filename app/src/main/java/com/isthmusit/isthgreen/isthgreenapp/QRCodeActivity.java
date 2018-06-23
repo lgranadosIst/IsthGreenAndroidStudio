@@ -66,6 +66,8 @@ public class QRCodeActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("QR Code");
+        TextView toolBarTitle = findViewById(R.id.toolbarTitle);
+        toolBarTitle.setText("QR Code");
     }
 
     private void openQRCode(){

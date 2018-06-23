@@ -6,6 +6,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.content.Intent;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class DashboardActivity extends AppCompatActivity {
     private Button btnBack;
@@ -26,11 +27,15 @@ public class DashboardActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        setToolbar();
     }
 
     private void setToolbar(){
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Dashboard");
+        TextView toolBarTitle = findViewById(R.id.toolbarTitle);
+        toolBarTitle.setText("Dashboard");
     }
 }

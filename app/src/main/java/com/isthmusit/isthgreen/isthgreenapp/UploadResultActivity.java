@@ -6,6 +6,7 @@ import android.view.View;
 import android.content.Intent;
 import android.widget.Button;
 import android.support.v7.widget.Toolbar;
+import android.widget.TextView;
 
 public class UploadResultActivity extends AppCompatActivity {
     private Button btnNext;
@@ -36,6 +37,9 @@ public class UploadResultActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Result");
+        TextView toolBarTitle = findViewById(R.id.toolbarTitle);
+        toolBarTitle.setText("Result");
+
     }
 
 }

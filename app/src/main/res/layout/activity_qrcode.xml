@@ -11,6 +11,13 @@
         layout="@layout/toolbar"
         />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="60dp"
+        android:gravity="center|top">
+
     <Button
         android:id="@+id/btnOpenQRCode"
         android:layout_width="192dp"
@@ -55,5 +62,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.044" />
+
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

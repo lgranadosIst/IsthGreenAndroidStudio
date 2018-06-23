@@ -95,6 +95,8 @@ public class SendImageActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Get Image");
+        TextView toolBarTitle = findViewById(R.id.toolbarTitle);
+        toolBarTitle.setText("Get Image");
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent imageReturnedIntent) {
