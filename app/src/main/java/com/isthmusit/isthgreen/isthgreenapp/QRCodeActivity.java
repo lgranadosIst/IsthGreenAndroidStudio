@@ -23,6 +23,7 @@ public class QRCodeActivity extends AppCompatActivity {
     private TextView textUsername;
     private TextView textPassword;
     private Toolbar toolbar;
+    private SessionManager sessionManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,13 +32,16 @@ public class QRCodeActivity extends AppCompatActivity {
 
         this.setTitle("QR Code");
 
+        sessionManager = new SessionManager(QRCodeActivity.this);
+        UserSession userSession = sessionManager.getToken();
+
         Bundle bundle = this.getIntent().getExtras();
         if(bundle != null){
             User user = bundle.getParcelable("User");
             textUsername = findViewById(R.id.TextUsername);
             textPassword = findViewById(R.id.TextPassword);
-            textUsername.setText("Username: " + user.Username);
-            textPassword.setText("Password: " + user.Password);
+            textUsername.setText("Username: " + user.Username + " Token: " + userSession.getToken());
+            textPassword.setText("Password: " + user.Password + " UserId: " + userSession.getUserId());
         }
 
         btnOpenQrCode = findViewById(R.id.btnOpenQRCode);

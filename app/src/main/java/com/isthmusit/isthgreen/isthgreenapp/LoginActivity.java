@@ -13,6 +13,8 @@ import android.widget.TextView;
 import com.isthmusit.isthgreen.isthgreenapp.entity.User;
 import java.util.Calendar;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class LoginActivity extends AppCompatActivity {
 
     private TextView txtCopyright;
@@ -20,6 +22,8 @@ public class LoginActivity extends AppCompatActivity {
     private Boolean isPasswordValid = false;
     private EditText mPasswordView;
     private EditText mUsernameView;
+    private CircleImageView isthmusLogo;
+    private SessionManager sessionManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,16 +36,21 @@ public class LoginActivity extends AppCompatActivity {
         txtCopyright = findViewById(R.id.txtCopyright);
         txtCopyright.setText("© "+ Integer.toString(year)+" Copyright Isthmus Software");
 
-        mUsernameView = (EditText) findViewById(R.id.username);
-        mPasswordView = (EditText) findViewById(R.id.password);
+        mUsernameView = findViewById(R.id.username);
+        mPasswordView = findViewById(R.id.password);
 
-        Button mLoginSignInButton = (Button) findViewById(R.id.login_button);
+        Button mLoginSignInButton = findViewById(R.id.login_button);
         mLoginSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 attemptLogin();
             }
         });
+
+        isthmusLogo = findViewById(R.id.isthmus_logo);
+        isthmusLogo.setImageResource(R.mipmap.ic_isthgreen_foreground);
+
+        sessionManager = new SessionManager(LoginActivity.this);
     }
 
     private void attemptLogin() {
@@ -82,6 +91,10 @@ public class LoginActivity extends AppCompatActivity {
             focusView.requestFocus();
         } else {
             if(isUsernameValid && isPasswordValid){
+
+                String token  = "token@123";
+                sessionManager.createSession(token, "ID123");
+
                 Intent intent = new Intent(LoginActivity.this, QRCodeActivity.class);
 
                 User user = new User();
