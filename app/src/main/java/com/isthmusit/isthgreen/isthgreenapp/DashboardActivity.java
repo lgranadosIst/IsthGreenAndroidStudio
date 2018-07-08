@@ -8,9 +8,23 @@ import android.content.Intent;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.isthmusit.isthgreen.isthgreenapp.entity.Post;
+import com.isthmusit.isthgreen.isthgreenapp.service.ApiService;
+import com.isthmusit.isthgreen.isthgreenapp.service.RetrofitClient;
+import com.isthmusit.isthgreen.isthgreenapp.util.AuthInterceptor;
+
+import java.util.List;
+
+import okhttp3.OkHttpClient;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+
 public class DashboardActivity extends AppCompatActivity {
     private Button btnBack;
     private Toolbar toolbar;
+    private TextView postList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +43,9 @@ public class DashboardActivity extends AppCompatActivity {
         });
 
         setToolbar();
+
+        postList = findViewById(R.id.postList);
+        getPosts();
     }
 
     private void setToolbar(){
@@ -37,5 +54,32 @@ public class DashboardActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Dashboard");
         TextView toolBarTitle = findViewById(R.id.toolbarTitle);
         toolBarTitle.setText("Dashboard");
+    }
+
+    private void getPosts(){
+        OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
+        Retrofit.Builder builder = RetrofitClient.getIstance();
+        Retrofit retrofit = builder.client(httpClient.addInterceptor(new AuthInterceptor(DashboardActivity.this)).build()).build();
+        ApiService apiService = retrofit.create(ApiService.class);
+
+        Call<List<Post>> call =  apiService.getPosts();
+
+        call.enqueue(new Callback<List<Post>>() {
+            @Override
+            public void onResponse(Call<List<Post>> call, Response<List<Post>> response) {
+                if(response != null && response.isSuccessful()){
+                    String result = "result: ";
+                    for (Post post: response.body()) {
+                        result += post.getName();
+                    }
+                    postList.setText(result);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Post>> call, Throwable t) {
+
+            }
+        });
     }
 }

@@ -5,7 +5,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/recycled_seals_foreground"
     tools:context=".DashboardActivity">
 
     <include
@@ -13,6 +12,18 @@
         layout="@layout/toolbar"
         />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="60dp"
+        android:gravity="center|top">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/postList"
+        android:textSize="20dp"/>
     <Button
         android:id="@+id/btnBackToQRCode"
         android:layout_width="wrap_content"
@@ -27,5 +38,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.424" />
+
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

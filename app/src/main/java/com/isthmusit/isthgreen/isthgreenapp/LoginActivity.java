@@ -10,10 +10,23 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.isthmusit.isthgreen.isthgreenapp.contract.JWTToken;
 import com.isthmusit.isthgreen.isthgreenapp.entity.User;
+import com.isthmusit.isthgreen.isthgreenapp.entity.UserCredential;
+import com.isthmusit.isthgreen.isthgreenapp.service.ApiService;
+import com.isthmusit.isthgreen.isthgreenapp.service.RetrofitClient;
+import com.isthmusit.isthgreen.isthgreenapp.service.SessionManager;
+
 import java.util.Calendar;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import okhttp3.OkHttpClient;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -92,19 +105,32 @@ public class LoginActivity extends AppCompatActivity {
         } else {
             if(isUsernameValid && isPasswordValid){
 
-                String token  = "token@123";
-                sessionManager.createSession(token, "ID123");
+                authenticateToService(username, password);
+//                OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
+//                Retrofit.Builder builder = RetrofitClient.getIstance();
+//                Retrofit retrofit = builder.client(httpClient.build()).build();
+//                ApiService apiService = retrofit.create(ApiService.class);
+//
+//                UserCredential userCredential = new UserCredential(username, password, true);
+//                Call<JWTToken> call =  apiService.authenticate(userCredential);
+//
+//                call.enqueue(new Callback<JWTToken>() {
+//                    @Override
+//                    public void onResponse(Call<JWTToken> call, Response<JWTToken> response) {
+//                        if(response != null){
+//                            sessionManager.createSession(response.body().getId_token(), "USERID");
+//                            Intent intent = new Intent(LoginActivity.this, QRCodeActivity.class);
+//                            //intent.putExtras(bundle);
+//                            startActivity(intent);
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onFailure(Call<JWTToken> call, Throwable t) {
+//
+//                    }
+//                });
 
-                Intent intent = new Intent(LoginActivity.this, QRCodeActivity.class);
-
-                User user = new User();
-                user.Username = username;
-                user.Password = password;
-                Bundle bundle = new Bundle();
-                bundle.putParcelable("User", user);
-                intent.putExtras(bundle);
-
-                startActivity(intent);
             }
         }
     }
@@ -118,6 +144,42 @@ public class LoginActivity extends AppCompatActivity {
     private boolean isPasswordValid(String password) {
         isPasswordValid = password.length() > 2;
         return isPasswordValid;
+    }
+
+    private void authenticateToService(String username, String password){
+        OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
+        Retrofit.Builder builder = RetrofitClient.getIstance();
+        Retrofit retrofit = builder.client(httpClient.build()).build();
+        ApiService apiService = retrofit.create(ApiService.class);
+
+        UserCredential userCredential = new UserCredential(username, password, true);
+        Call<JWTToken> call =  apiService.authenticate(userCredential);
+
+//        User user = new User();
+//        user.Username = username;
+//        user.Password = password;
+//        Bundle bundle = new Bundle();
+//        bundle.putParcelable("User", user);
+
+        call.enqueue(new Callback<JWTToken>() {
+            @Override
+            public void onResponse(Call<JWTToken> call, Response<JWTToken> response) {
+                if(response != null && response.isSuccessful()){
+                    sessionManager.createSession(response.body().getId_token(), "USERID");
+                    Intent intent = new Intent(LoginActivity.this, QRCodeActivity.class);
+                    //intent.putExtras(bundle);
+                    startActivity(intent);
+                }
+                else{
+                    Toast.makeText(LoginActivity.this, "Authentication failed", Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<JWTToken> call, Throwable t) {
+
+            }
+        });
     }
 }
 

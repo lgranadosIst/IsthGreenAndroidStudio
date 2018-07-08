@@ -1,7 +1,9 @@
-package com.isthmusit.isthgreen.isthgreenapp;
+package com.isthmusit.isthgreen.isthgreenapp.service;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+
+import com.isthmusit.isthgreen.isthgreenapp.entity.UserSession;
 
 public class SessionManager {
 
@@ -28,7 +30,7 @@ public class SessionManager {
         editor.commit();
     }
 
-    public UserSession getToken(){
+    public UserSession getSession(){
         UserSession userSession = new UserSession(pref.getString(KEY_TOKEN, null),
                 pref.getString(USER_ID, null));
         return userSession;

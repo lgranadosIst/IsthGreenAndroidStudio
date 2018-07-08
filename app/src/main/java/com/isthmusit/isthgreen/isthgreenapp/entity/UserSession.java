@@ -1,4 +1,4 @@
-package com.isthmusit.isthgreen.isthgreenapp;
+package com.isthmusit.isthgreen.isthgreenapp.entity;
 
 public class UserSession {
 

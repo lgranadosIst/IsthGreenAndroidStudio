@@ -13,7 +13,8 @@ import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 import com.isthmusit.isthgreen.isthgreenapp.entity.QRCode;
 import com.isthmusit.isthgreen.isthgreenapp.entity.User;
-
+import com.isthmusit.isthgreen.isthgreenapp.entity.UserSession;
+import com.isthmusit.isthgreen.isthgreenapp.service.SessionManager;
 
 
 public class QRCodeActivity extends AppCompatActivity {
@@ -33,16 +34,21 @@ public class QRCodeActivity extends AppCompatActivity {
         this.setTitle("QR Code");
 
         sessionManager = new SessionManager(QRCodeActivity.this);
-        UserSession userSession = sessionManager.getToken();
+        UserSession userSession = sessionManager.getSession();
+        boolean login = sessionManager.isLoggedIn();
+        //sessionManager.logOut();
 
-        Bundle bundle = this.getIntent().getExtras();
-        if(bundle != null){
-            User user = bundle.getParcelable("User");
-            textUsername = findViewById(R.id.TextUsername);
-            textPassword = findViewById(R.id.TextPassword);
-            textUsername.setText("Username: " + user.Username + " Token: " + userSession.getToken());
-            textPassword.setText("Password: " + user.Password + " UserId: " + userSession.getUserId());
-        }
+//        Bundle bundle = this.getIntent().getExtras();
+//        if(bundle != null){
+//            User user = bundle.getParcelable("User");
+//            textUsername = findViewById(R.id.TextUsername);
+//            textPassword = findViewById(R.id.TextPassword);
+//            textUsername.setText("Username: " + user.Username + " Token: " + userSession.getToken());
+//            textPassword.setText("Password: " + user.Password + " UserId: " + userSession.getUserId());
+//        }
+
+        textUsername = findViewById(R.id.TextUsername);
+        textUsername.setText("Token: " + userSession.getToken());
 
         btnOpenQrCode = findViewById(R.id.btnOpenQRCode);
         btnOpenQrCode.setOnClickListener(new View.OnClickListener() {
