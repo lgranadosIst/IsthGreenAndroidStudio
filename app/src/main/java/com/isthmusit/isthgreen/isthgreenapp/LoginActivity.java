@@ -1,6 +1,7 @@
 package com.isthmusit.isthgreen.isthgreenapp;
 
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -37,6 +38,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText mUsernameView;
     private CircleImageView isthmusLogo;
     private SessionManager sessionManager;
+    private ProgressDialog progress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,33 +106,7 @@ public class LoginActivity extends AppCompatActivity {
             focusView.requestFocus();
         } else {
             if(isUsernameValid && isPasswordValid){
-
                 authenticateToService(username, password);
-//                OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
-//                Retrofit.Builder builder = RetrofitClient.getIstance();
-//                Retrofit retrofit = builder.client(httpClient.build()).build();
-//                ApiService apiService = retrofit.create(ApiService.class);
-//
-//                UserCredential userCredential = new UserCredential(username, password, true);
-//                Call<JWTToken> call =  apiService.authenticate(userCredential);
-//
-//                call.enqueue(new Callback<JWTToken>() {
-//                    @Override
-//                    public void onResponse(Call<JWTToken> call, Response<JWTToken> response) {
-//                        if(response != null){
-//                            sessionManager.createSession(response.body().getId_token(), "USERID");
-//                            Intent intent = new Intent(LoginActivity.this, QRCodeActivity.class);
-//                            //intent.putExtras(bundle);
-//                            startActivity(intent);
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onFailure(Call<JWTToken> call, Throwable t) {
-//
-//                    }
-//                });
-
             }
         }
     }
@@ -147,8 +123,15 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void authenticateToService(String username, String password){
+
+        progress = new ProgressDialog(LoginActivity.this);
+        progress.setTitle("Authenticating...");
+        progress.setCancelable(false);
+        progress.setIndeterminate(true);
+        progress.show();
+
         OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
-        Retrofit.Builder builder = RetrofitClient.getIstance();
+        Retrofit.Builder builder = RetrofitClient.getInstance();
         Retrofit retrofit = builder.client(httpClient.build()).build();
         ApiService apiService = retrofit.create(ApiService.class);
 
@@ -165,12 +148,14 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<JWTToken> call, Response<JWTToken> response) {
                 if(response != null && response.isSuccessful()){
+                    progress.hide();
                     sessionManager.createSession(response.body().getId_token(), "USERID");
                     Intent intent = new Intent(LoginActivity.this, QRCodeActivity.class);
                     //intent.putExtras(bundle);
                     startActivity(intent);
                 }
                 else{
+                    progress.hide();
                     Toast.makeText(LoginActivity.this, "Authentication failed", Toast.LENGTH_LONG).show();
                 }
             }

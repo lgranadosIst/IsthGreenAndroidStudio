@@ -38,100 +38,114 @@
             android:orientation="vertical"
             >
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/layout_round"
+            android:orientation="vertical"
+            android:layout_marginBottom="10dp">
             <TextView
                 android:id="@+id/textQRCode"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="This is the scanned QR Code"
-                android:textSize="20dp" />
-
+                android:text="This is the scanned QR Code:"
+                android:textSize="20dp"
+                android:layout_marginTop="10dp"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"/>
             <EditText
                 android:id="@+id/editQRCode"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:focusable="false"
-                android:inputType="none" />
+                android:inputType="none"
+                android:layout_margin="@dimen/activity_horizontal_margin"/>
+        </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/layout_round"
+            android:orientation="vertical"
+            android:layout_marginBottom="10dp">
             <TextView
                 android:id="@+id/textSelectImage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="Select an image or take a photo"
-                android:textSize="20dp" />
-
-            <!--<EditText-->
-            <!--android:id="@+id/editSelectImage"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:ems="10"-->
-            <!--android:inputType="none"-->
-            <!--android:focusable="false"/>-->
-
+                android:layout_marginTop="10dp"
+                android:text="Select an image or take a photo:"
+                android:textSize="20dp"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"/>
             <ImageView
                 android:id="@+id/imageViewSelectedImage"
-                android:layout_width="match_parent"
-                android:layout_height="150dp" />
-
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_gravity="center"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
-                android:orientation="horizontal">
-
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:layout_weight="1">
-
                     <Button
                         android:id="@+id/btnOpenCamera"
                         android:layout_width="58dp"
                         android:layout_height="wrap_content"
-
                         android:background="@drawable/ic_action_camera" />
                 </LinearLayout>
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:layout_weight="1">
-
                     <Button
                         android:id="@+id/btnSelectPhoto"
                         android:layout_width="58dp"
                         android:layout_height="wrap_content"
                         android:background="@drawable/ic_action_get_image" />
                 </LinearLayout>
-
             </LinearLayout>
+        </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/layout_round"
+            android:orientation="vertical"
+            android:layout_marginBottom="10dp">
             <TextView
                 android:id="@+id/textAmount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="Please enter the amount of items"
-                android:textSize="20dp" />
-
-
+                android:text="Please enter the amount of items:"
+                android:textSize="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"/>
             <EditText
                 android:id="@+id/editAmount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="number" />
+                android:inputType="number"
+                android:layout_margin="@dimen/activity_horizontal_margin"/>
+        </LinearLayout>
 
-            <Button
-                android:id="@+id/btnGoToResult"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Submit"
-                android:textColor="#000"
-                android:textSize="20dp" />
+        <Button
+            android:id="@+id/btnGoToResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Submit"
+            android:textColor="#000"
+            android:textSize="20dp"
+            android:background="@drawable/button_round"/>
+
         </LinearLayout>
 
     </ScrollView>

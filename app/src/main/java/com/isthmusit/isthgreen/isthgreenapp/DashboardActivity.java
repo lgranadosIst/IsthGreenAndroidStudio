@@ -58,7 +58,7 @@ public class DashboardActivity extends AppCompatActivity {
 
     private void getPosts(){
         OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
-        Retrofit.Builder builder = RetrofitClient.getIstance();
+        Retrofit.Builder builder = RetrofitClient.getInstance();
         Retrofit retrofit = builder.client(httpClient.addInterceptor(new AuthInterceptor(DashboardActivity.this)).build()).build();
         ApiService apiService = retrofit.create(ApiService.class);
 

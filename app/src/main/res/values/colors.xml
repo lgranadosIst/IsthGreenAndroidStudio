@@ -8,4 +8,6 @@
     <color name="border_green_light">#7db620</color>
     <color name="light_green">#f3f7f2</color>
     <color name="light_grey">#9eb6a6</color>
+    <color name="red">#a71830</color>
+    <color name="black">#101010</color>
 </resources>

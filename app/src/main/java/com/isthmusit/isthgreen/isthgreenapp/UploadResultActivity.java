@@ -12,6 +12,8 @@ public class UploadResultActivity extends AppCompatActivity {
     private Button btnNext;
     private Button btnBack;
     private Toolbar toolbar;
+    private TextView textImageUrl;
+    private TextView textImageId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +32,16 @@ public class UploadResultActivity extends AppCompatActivity {
         });
 
         setToolbar();
+
+        textImageUrl = findViewById(R.id.textImageUrl);
+        Bundle bundle = getIntent().getExtras();
+        if(bundle.containsKey("ImageUrl")) {
+            textImageUrl.setText("Image Url: " + bundle.getString("ImageUrl"));
+        }
+        textImageId = findViewById(R.id.textImageId);
+        if(bundle.containsKey("ImageId")) {
+            textImageId.setText("Image Id: " + bundle.getLong("ImageId"));
+        }
     }
 
     private void setToolbar(){

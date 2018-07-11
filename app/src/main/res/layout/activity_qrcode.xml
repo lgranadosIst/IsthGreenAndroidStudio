@@ -18,50 +18,48 @@
         android:layout_marginTop="60dp"
         android:gravity="center|top">
 
-    <Button
-        android:id="@+id/btnOpenQRCode"
-        android:layout_width="192dp"
-        android:layout_height="165dp"
-        android:background="@mipmap/ic_recycle_qr_code_foreground"
-        android:gravity="center_horizontal"
-        android:visibility="visible"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:textSize="20dp"
+            android:text="Welcome to IsthGreen App. Follow the instructions to start recycling."/>
 
-    <Button
-        android:id="@+id/btnGoToSendImage"
-        android:layout_width="110dp"
-        android:layout_height="91dp"
-        android:background="@drawable/ic_action_get_image"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.392" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/layout_round"
+            android:orientation="vertical"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:layout_margin="@dimen/activity_horizontal_margin">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/activity_horizontal_margin"
+                android:textSize="20dp"
+                android:text="Please scan the QR code to continue"/>
+            <Button
+                android:id="@+id/btnOpenQRCode"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:background="@mipmap/ic_recycle_qr_code_foreground"
+                />
+            <Button
+                android:id="@+id/btnGoToSendImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Skip Code"
+                android:background="@drawable/button_round"
+                android:layout_margin="@dimen/activity_horizontal_margin"/>
+        </LinearLayout>
 
     <TextView
         android:id="@+id/TextUsername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Username"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.95"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.006" />
-
-    <TextView
-        android:id="@+id/TextPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Password"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.95"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.044" />
+        android:visibility="invisible"/>
 
     </LinearLayout>
 

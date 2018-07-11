@@ -22,7 +22,6 @@ public class QRCodeActivity extends AppCompatActivity {
     private Button btnNext;
     private Button btnOpenQrCode;
     private TextView textUsername;
-    private TextView textPassword;
     private Toolbar toolbar;
     private SessionManager sessionManager;
 
