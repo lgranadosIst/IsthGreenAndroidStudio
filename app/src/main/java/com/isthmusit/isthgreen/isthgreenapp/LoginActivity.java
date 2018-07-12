@@ -10,19 +10,21 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.isthmusit.isthgreen.isthgreenapp.contract.JWTToken;
-import com.isthmusit.isthgreen.isthgreenapp.entity.User;
 import com.isthmusit.isthgreen.isthgreenapp.entity.UserCredential;
 import com.isthmusit.isthgreen.isthgreenapp.service.ApiService;
 import com.isthmusit.isthgreen.isthgreenapp.service.RetrofitClient;
 import com.isthmusit.isthgreen.isthgreenapp.service.SessionManager;
+import com.makeramen.roundedimageview.RoundedTransformationBuilder;
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Transformation;
 
 import java.util.Calendar;
 
-import de.hdodenhof.circleimageview.CircleImageView;
 import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -36,7 +38,7 @@ public class LoginActivity extends AppCompatActivity {
     private Boolean isPasswordValid = false;
     private EditText mPasswordView;
     private EditText mUsernameView;
-    private CircleImageView isthmusLogo;
+    private ImageView isthmusLogo;
     private SessionManager sessionManager;
     private ProgressDialog progress;
 
@@ -63,7 +65,16 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         isthmusLogo = findViewById(R.id.isthmus_logo);
-        isthmusLogo.setImageResource(R.mipmap.ic_isthgreen_foreground);
+        Transformation transformation = new RoundedTransformationBuilder()
+                .cornerRadiusDp(25)
+                .oval(false)
+                .build();
+        Picasso.with(this)
+                .load(R.mipmap.ic_isthgreen_foreground)
+                .fit()
+                .centerCrop()
+                .transform(transformation)
+                .into(isthmusLogo);
 
         sessionManager = new SessionManager(LoginActivity.this);
     }
