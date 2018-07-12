@@ -2,8 +2,6 @@ package com.isthmusit.isthgreen.isthgreenapp;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -12,42 +10,23 @@ import android.widget.Toast;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 import com.isthmusit.isthgreen.isthgreenapp.entity.QRCode;
-import com.isthmusit.isthgreen.isthgreenapp.entity.User;
-import com.isthmusit.isthgreen.isthgreenapp.entity.UserSession;
-import com.isthmusit.isthgreen.isthgreenapp.service.SessionManager;
 
-
-public class QRCodeActivity extends AppCompatActivity {
+public class QRCodeActivity extends BaseActivity {
 
     private Button btnNext;
     private Button btnOpenQrCode;
     private TextView textUsername;
-    private Toolbar toolbar;
-    private SessionManager sessionManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qrcode);
 
-        this.setTitle("QR Code");
-
-        sessionManager = new SessionManager(QRCodeActivity.this);
-        UserSession userSession = sessionManager.getSession();
-        boolean login = sessionManager.isLoggedIn();
-        //sessionManager.logOut();
-
-//        Bundle bundle = this.getIntent().getExtras();
-//        if(bundle != null){
-//            User user = bundle.getParcelable("User");
-//            textUsername = findViewById(R.id.TextUsername);
-//            textPassword = findViewById(R.id.TextPassword);
-//            textUsername.setText("Username: " + user.Username + " Token: " + userSession.getToken());
-//            textPassword.setText("Password: " + user.Password + " UserId: " + userSession.getUserId());
-//        }
+        setToolbar("Scan QR Code", false);
+        this.setTitle("Scan QR Code");
 
         textUsername = findViewById(R.id.TextUsername);
-        textUsername.setText("Token: " + userSession.getToken());
+        textUsername.setText("Token: " + getToken());
 
         btnOpenQrCode = findViewById(R.id.btnOpenQRCode);
         btnOpenQrCode.setOnClickListener(new View.OnClickListener() {
@@ -66,17 +45,8 @@ public class QRCodeActivity extends AppCompatActivity {
             }
         });
 
-        setToolbar();
 
-    }
 
-    private void setToolbar(){
-        toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("QR Code");
-        TextView toolBarTitle = findViewById(R.id.toolbarTitle);
-        toolBarTitle.setText("QR Code");
     }
 
     private void openQRCode(){

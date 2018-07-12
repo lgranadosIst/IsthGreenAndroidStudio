@@ -1,10 +1,8 @@
 package com.isthmusit.isthgreen.isthgreenapp;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.content.Intent;
 import android.widget.Button;
@@ -25,9 +23,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 
-public class DashboardActivity extends AppCompatActivity {
+public class DashboardActivity extends BaseActivity {
     private Button btnBack;
-    private Toolbar toolbar;
     private RecyclerView recyclerView;
     private PostAdapter postAdapter;
     private RecyclerView.LayoutManager layoutManager;
@@ -37,6 +34,7 @@ public class DashboardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
+        setToolbar("Dashboard", false);
         this.setTitle("Dashboard");
 
         btnBack = findViewById(R.id.btnBackToQRCode);
@@ -48,19 +46,9 @@ public class DashboardActivity extends AppCompatActivity {
             }
         });
 
-        setToolbar();
-
         recyclerView =  findViewById(R.id.recycler);
         layoutManager = new LinearLayoutManager(this);
         getPosts();
-    }
-
-    private void setToolbar(){
-        toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Dashboard");
-        TextView toolBarTitle = findViewById(R.id.toolbarTitle);
-        toolBarTitle.setText("Dashboard");
     }
 
     private void getPosts(){

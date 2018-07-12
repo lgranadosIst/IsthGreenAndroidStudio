@@ -5,15 +5,12 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.content.res.ColorStateList;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -24,11 +21,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.isthmusit.isthgreen.isthgreenapp.entity.ImageResponse;
-import com.isthmusit.isthgreen.isthgreenapp.entity.Post;
 import com.isthmusit.isthgreen.isthgreenapp.entity.QRCode;
 
 import com.isthmusit.isthgreen.isthgreenapp.entity.RecycleRequest;
-import com.isthmusit.isthgreen.isthgreenapp.entity.User;
 import com.isthmusit.isthgreen.isthgreenapp.service.ApiService;
 import com.isthmusit.isthgreen.isthgreenapp.service.RetrofitClient;
 import com.isthmusit.isthgreen.isthgreenapp.util.AuthInterceptor;
@@ -40,7 +35,6 @@ import com.squareup.picasso.Transformation;
 import java.io.File;
 import java.io.IOException;
 import java.util.Date;
-import java.util.List;
 
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
@@ -51,16 +45,14 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 
-public class SendImageActivity extends AppCompatActivity {
+public class SendImageActivity extends BaseActivity {
     private Button btnNext;
-    private Button btnBack;
     private Button btnOpenCamera;
     private Button btnSelectPhoto;
     private ImageView imageViewSelectedImage;
     private EditText editQRCode;
     private EditText editAmount;
     private TextView textSelectImage;
-    private Toolbar toolbar;
     private ProgressDialog progress;
 
     private Uri filePath;
@@ -75,12 +67,13 @@ public class SendImageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_send_image);
 
+        setToolbar("Get Image Info", true);
+        this.setTitle("Get Image Info");
+
         imageViewSelectedImage = findViewById(R.id.imageViewSelectedImage);
         editAmount = findViewById(R.id.editAmount);
         textSelectImage = findViewById(R.id.textSelectImage);
-        setToolbar();
 
-        this.setTitle("Get Image");
         Bundle bundle = this.getIntent().getExtras();
         if(bundle != null){
             QRCode qrCode = bundle.getParcelable("QRCode");
@@ -146,14 +139,6 @@ public class SendImageActivity extends AppCompatActivity {
         });
     }
 
-    private void setToolbar(){
-        toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Get Image");
-        TextView toolBarTitle = findViewById(R.id.toolbarTitle);
-        toolBarTitle.setText("Get Image");
-    }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if(data != null) {
