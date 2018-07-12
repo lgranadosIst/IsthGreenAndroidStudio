@@ -233,7 +233,7 @@ public class SendImageActivity extends AppCompatActivity {
                 @Override
                 public void onResponse(Call<ImageResponse> call, Response<ImageResponse> response) {
                     if(response != null && response.isSuccessful()){
-                        Toast.makeText(SendImageActivity.this, response.body().getImagUrl(), Toast.LENGTH_LONG).show();
+                        //Toast.makeText(SendImageActivity.this, response.body().getImagUrl(), Toast.LENGTH_LONG).show();
                         System.out.println("Image successfully submitted.");
                         submitRecycleRequest(response.body().getImagUrl());
                     }

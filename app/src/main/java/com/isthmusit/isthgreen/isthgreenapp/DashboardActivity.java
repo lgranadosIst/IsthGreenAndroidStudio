@@ -2,13 +2,17 @@ package com.isthmusit.isthgreen.isthgreenapp;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.content.Intent;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.isthmusit.isthgreen.isthgreenapp.entity.Post;
+import com.isthmusit.isthgreen.isthgreenapp.entity.PostAdapter;
 import com.isthmusit.isthgreen.isthgreenapp.service.ApiService;
 import com.isthmusit.isthgreen.isthgreenapp.service.RetrofitClient;
 import com.isthmusit.isthgreen.isthgreenapp.util.AuthInterceptor;
@@ -24,7 +28,9 @@ import retrofit2.Retrofit;
 public class DashboardActivity extends AppCompatActivity {
     private Button btnBack;
     private Toolbar toolbar;
-    private TextView postList;
+    private RecyclerView recyclerView;
+    private PostAdapter postAdapter;
+    private RecyclerView.LayoutManager layoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +50,8 @@ public class DashboardActivity extends AppCompatActivity {
 
         setToolbar();
 
-        postList = findViewById(R.id.postList);
+        recyclerView =  findViewById(R.id.recycler);
+        layoutManager = new LinearLayoutManager(this);
         getPosts();
     }
 
@@ -68,11 +75,15 @@ public class DashboardActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<Post>> call, Response<List<Post>> response) {
                 if(response != null && response.isSuccessful()){
-                    String result = "result: ";
-                    for (Post post: response.body()) {
-                        result += post.getName();
-                    }
-                    postList.setText(result);
+                    postAdapter = new PostAdapter(response.body(),R.layout.post_item, new PostAdapter.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(Long id, int position) {
+                            Toast.makeText(DashboardActivity.this, id.toString(),Toast.LENGTH_LONG).show();
+                        }
+                    });
+
+                    recyclerView.setLayoutManager(layoutManager);
+                    recyclerView.setAdapter(postAdapter);
                 }
             }
 

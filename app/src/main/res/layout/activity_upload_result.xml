@@ -34,6 +34,8 @@
                 android:text="Your recycle request has been successfully submitted."/>
             <TextView
                 android:id="@+id/textImageUrl"
+                android:autoLink="web"
+                android:linksClickable="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/activity_horizontal_margin"
@@ -50,9 +52,10 @@
 
         <Button
             android:id="@+id/btnGoToDashboard"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:text="Go To Dashboard"
+            android:text="Go to Dashboard"
+            android:textAllCaps="false"
             android:background="@drawable/button_round"
             android:layout_margin="@dimen/activity_horizontal_margin"/>
 

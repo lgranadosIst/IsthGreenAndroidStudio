@@ -47,9 +47,10 @@
                 />
             <Button
                 android:id="@+id/btnGoToSendImage"
-                android:layout_width="wrap_content"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:text="Skip Code"
+                android:textAllCaps="false"
                 android:background="@drawable/button_round"
                 android:layout_margin="@dimen/activity_horizontal_margin"/>
         </LinearLayout>
